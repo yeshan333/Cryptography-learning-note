@@ -5,7 +5,7 @@ message = 'GUVF VF ZL FRPERG ZRFFNTR.'  # 待破解密文
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'  # 解密符号集（也许不是）
 
 # loop through every possible key
-# 每个key都试一下
+# 每个key都试一下, 暴力破解
 for key in range(len(LETTERS)):
 
     # It is important to set translated to the blank string so that the
