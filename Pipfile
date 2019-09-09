@@ -8,8 +8,6 @@ verify_ssl = true
 [packages]
 pyperclip = "*"
 pylint = "*"
-rabinmiller = "*"
-cryptomath = "*"
 
 [requires]
 python_version = "3.7"

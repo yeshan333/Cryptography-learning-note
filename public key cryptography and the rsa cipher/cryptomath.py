@@ -13,6 +13,7 @@ def gcd(a, b):
 # https://wenku.baidu.com/view/34dbaef343323968011c92ea.html
 # # 扩展欧几里得求模逆元：https://zh.wikipedia.org/wiki/模反元素#用扩展欧几里得算法
 # ????have to learn
+# 思路：https://blog.csdn.net/baidu_38271024/article/details/78881031?tdsourcetag=s_pctim_aiomsg
 def findModInverse(a, m):
     # Returns the modular inverse of a % m, which is
     # the number x such that a*x % m = 1
