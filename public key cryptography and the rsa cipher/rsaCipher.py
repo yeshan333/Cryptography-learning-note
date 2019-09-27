@@ -14,12 +14,19 @@ def main():
     # from a file.
     filename = 'encrypted_file.txt' # the file to write to/read from
     mode = 'encrypt' # set to 'encrypt' or 'decrypt'
+    # mode = 'decrypt'
 
     if mode == 'encrypt':
-        message = '''"Journalists belong in the gutter because that is where the ruling classes throw their guilty secrets." -Gerald Priestland "The Founding Fathers gave the free press the protection it must have to bare the secrets of government and inform the people." -Hugo Black'''
+        message = 'My name is Ye Shan, nice to meet you !'
+        # message = '''"Journalists belong in the gutter because that is where the ruling classes throw their guilty secrets." -Gerald Priestland "The Founding Fathers gave the free press the protection it must have to bare the secrets of government and inform the people." -Hugo Black'''
         pubKeyFilename = 'al_sweigart_pubkey.txt'
         print('Encrypting and writing to %s...' % (filename))
+        
+        # import time
+        # start = time.perf_counter()
         encryptedText = encryptAndWriteToFile(filename, pubKeyFilename, message)
+        # end = time.perf_counter()
+        # print(f'Cost {end-start} seconds')
 
         print('Encrypted text:')
         print(encryptedText)
@@ -27,7 +34,12 @@ def main():
     elif mode == 'decrypt':
         privKeyFilename = 'al_sweigart_privkey.txt'
         print('Reading from %s and decrypting...' % (filename))
+
+        # from time import perf_counter
+        # start = perf_counter()
         decryptedText = readFromFileAndDecrypt(filename, privKeyFilename)
+        # end = perf_counter()
+        # print(f'Cost {end-start} seconds')
 
         print('Decrypted text:')
         print(decryptedText)
@@ -64,7 +76,7 @@ def getTextFromBlocks(blockInts, messageLength, blockSize=DEFAULT_BLOCK_SIZE):
                 blockInt = blockInt % (BYTE_SIZE ** i)
                 blockMessage.insert(0, chr(asciiNumber))
         message.extend(blockMessage)
-    return ''.join(message)
+    return ''.join(message)  # list to string
 
 
 def encryptMessage(message, key, blockSize=DEFAULT_BLOCK_SIZE):
@@ -157,4 +169,5 @@ def readFromFileAndDecrypt(messageFilename, keyFilename):
 # If rsaCipher.py is run (instead of imported as a module) call
 # the main() function.
 if __name__ == '__main__':
+    # python -m cProfile makeRsaKeys.py
     main()
