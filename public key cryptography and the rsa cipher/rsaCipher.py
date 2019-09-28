@@ -17,8 +17,13 @@ def main():
     # mode = 'decrypt'
 
     if mode == 'encrypt':
-        message = 'My name is Ye Shan, nice to meet you !'
+        # message = 'My name is Ye Shan, nice to meet you !'
         # message = '''"Journalists belong in the gutter because that is where the ruling classes throw their guilty secrets." -Gerald Priestland "The Founding Fathers gave the free press the protection it must have to bare the secrets of government and inform the people." -Hugo Black'''
+        
+        # 图像流测试
+        with open('test.txt', 'r') as f:
+            message = f.read()
+
         pubKeyFilename = 'al_sweigart_pubkey.txt'
         print('Encrypting and writing to %s...' % (filename))
         
@@ -30,6 +35,8 @@ def main():
 
         print('Encrypted text:')
         print(encryptedText)
+
+        print('done !')
 
     elif mode == 'decrypt':
         privKeyFilename = 'al_sweigart_privkey.txt'
