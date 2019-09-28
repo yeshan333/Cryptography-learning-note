@@ -13,8 +13,8 @@ def main():
     # Runs a test that encrypts a message to a file or decrypts a message
     # from a file.
     filename = 'encrypted_file.txt' # the file to write to/read from
-    mode = 'encrypt' # set to 'encrypt' or 'decrypt'
-    # mode = 'decrypt'
+    # mode = 'encrypt' # set to 'encrypt' or 'decrypt'
+    mode = 'decrypt'
 
     if mode == 'encrypt':
         # message = 'My name is Ye Shan, nice to meet you !'
@@ -42,15 +42,19 @@ def main():
         privKeyFilename = 'al_sweigart_privkey.txt'
         print('Reading from %s and decrypting...' % (filename))
 
-        # from time import perf_counter
-        # start = perf_counter()
+        from time import perf_counter
+        start = perf_counter()
         decryptedText = readFromFileAndDecrypt(filename, privKeyFilename)
-        # end = perf_counter()
-        # print(f'Cost {end-start} seconds')
+        end = perf_counter()
+        
 
         print('Decrypted text:')
         print(decryptedText)
 
+        with open('decrypted_file.txt', 'w') as f:
+            f.write(decryptedText)
+
+        print(f'Cost {end-start} seconds')
 
 def getBlocksFromText(message, blockSize=DEFAULT_BLOCK_SIZE):
     # Converts a string message to a list of block integers. Each integer
