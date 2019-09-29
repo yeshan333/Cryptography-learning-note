@@ -13,15 +13,15 @@ def main():
     # Runs a test that encrypts a message to a file or decrypts a message
     # from a file.
     filename = 'encrypted_file.txt' # the file to write to/read from
-    # mode = 'encrypt' # set to 'encrypt' or 'decrypt'
-    mode = 'decrypt'
+    mode = 'encrypt' # set to 'encrypt' or 'decrypt'
+    # mode = 'decrypt'
 
     if mode == 'encrypt':
         # message = 'My name is Ye Shan, nice to meet you !'
         # message = '''"Journalists belong in the gutter because that is where the ruling classes throw their guilty secrets." -Gerald Priestland "The Founding Fathers gave the free press the protection it must have to bare the secrets of government and inform the people." -Hugo Black'''
         
         # 图像流测试
-        with open('test.txt', 'r') as f:
+        with open('hamlet.txt', 'r') as f:
             message = f.read()
 
         pubKeyFilename = 'al_sweigart_pubkey.txt'
